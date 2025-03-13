@@ -1,6 +1,13 @@
+import com.squareup.square.Environment
+import com.squareup.square.SquareClient
+import com.squareup.square.authentication.BearerAuthModel
+import com.squareup.square.models.ListTeamMemberWagesRequest
+import config.ConfigLoader
 import java.util.logging.Level
 import java.util.logging.Logger
 import io.github.cdimascio.dotenv.Dotenv
+import kotlinx.coroutines.runBlocking
+import service.SquareService
 
 fun main() {
     val logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME)
@@ -25,4 +32,13 @@ fun main() {
     logger.log(Level.INFO, context.toString())
     logger.log(Level.INFO, "------------------------ENV----------------------------")
     logger.log(Level.INFO, dotenv.entries().toString())
+
+    val client: SquareClient = SquareClient.Builder()
+        .bearerAuthCredentials(BearerAuthModel.Builder(ConfigLoader.getProperty("SQUARE_ACCESS_TOKEN")).build())
+        .environment(Environment.SANDBOX)
+        .build()
+
+    val squareService = SquareService(client)
+     squareService.fetchLocations()
+
 }
