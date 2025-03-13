@@ -17,11 +17,11 @@ configs:
     type: object
   uischema:
     elements:
-    - label: Free Text Field 1
+    - label: Location Id
       scope: '#/properties/location_config'
       type: Control
-    - label: Free Text Field 2
-      scope: '#/properties/free_text_config_2'
+    - label: Business Id
+      scope: '#/properties/business_config'
       type: Control
     - label: Enable
       scope: '#/properties/enable'
