@@ -5,29 +5,29 @@ run: gradle run -q
 configs:
   schema:
     properties:
-      location_config:
+      free_text_config_1:
         type: string
-      business_config:
+      free_text_config_2:
         type: string
-      enable:
+      boolean_1:
         type: boolean
         default: true
-      fetch_employee:
+      boolean_2:
         type: boolean
     type: object
   uischema:
     elements:
-    - label: Location Id
-      scope: '#/properties/location_config'
+    - label: Free Text Field 1
+      scope: '#/properties/free_text_config_1'
       type: Control
-    - label: Business Id
-      scope: '#/properties/business_config'
+    - label: Free Text Field 2
+      scope: '#/properties/free_text_config_2'
       type: Control
-    - label: Enable
-      scope: '#/properties/enable'
+    - label: Boolean 1
+      scope: '#/properties/boolean_1'
       type: Control
       admin: true
-    - label: Fetch Employee
-      scope: '#/properties/fetch_employee'
+    - label: Boolean 2
+      scope: '#/properties/boolean_2'
       type: Control
     type: VerticalLayout
